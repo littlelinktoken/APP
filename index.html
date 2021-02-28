@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>STAKING | LITTLE LINK</title>
+<link rel="icon" type="image/png" href="./assets/images/favicon.png" />
+<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400%7cOpen+Sans:300,400,600%7cPT+Serif:400i" />
+<link rel="stylesheet" href="./assets/css/bootstrap-custom.css" />
+<link rel="stylesheet" href="./assets/css/rootui.css" />
+<link rel="stylesheet" href="./assets/css/rootui-night.css" media="(night)" class="rui-nightmode-link" />
+<link rel="stylesheet" href="./assets/css/custom.css" />
+<link rel="stylesheet" href="./assets/css/coinbreed.css" />
+
+<style>
+      .clockIcon {
+        display: inline;
+      }
+    </style>
+<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+
+<script src="./app.js"></script>
+</head>
+<body data-spy="scroll" data-target=".rui-page-sidebar" data-offset="140" class="rui-no-transition rui-navbar-autohide rui-section-lines">
+<div class="rui-page-preloader" role="status">
+<div class="rui-page-preloader-inner">
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+</div>
+</div>
+<div class="rui-yaybar-bg"></div>
+<nav class="rui-navbar rui-navbar-top rui-navbar-sticky">
+<div class="rui-navbar-brand">
+<a href="https://littlelink.finance" class="rui-navbar-logo">
+<img src="./assets/images/logooo.png" data-src-night="#" data-src-day="./assets/images/logooo.png" alt="" width="120" />
+</a>
+
+</div>
+<div class="container-fluid">
+<div class="rui-navbar-content">
+<ul class="nav">
+<li class="">
+<a href="./index.html" class="dropdown-item">
+<span data-feather="zap" class="text-brand rui-icon rui-icon-stroke-1_5"></span>
+<span class="text-brand">Staking</span>
+</a>
+
+</li>
+<li class="">
+<a href="./farming.html" class="dropdown-item">
+<span data-feather="settings" class="text-brand rui-icon rui-icon-stroke-1_5 text-secondary"></span>
+<span class="text-secondary">Farming</span>
+<span class="rui-dropdown-circle"></span>
+</a>
+
+</li>
+<li class="">
+<a href="https://littlelink.finance" class="dropdown-item">
+<span data-feather="airplay" class="text-secondary rui-icon rui-icon-stroke-1_5"></span>
+<span class="text-secondary">Home</span>
+</a>
+
+</li>
+</ul>
+<ul class="nav rui-navbar-right">
+
+<li class="dropdown" style="padding: 0">
+<a href="#">
+<button type="button" onclick="connectWallet()" class="btn btn-brand connectWalletBtn">
+Connect Wallet
+ </button>
+</a>
+</li>
+<li class="dropdown drop_this_at_mobile">
+<a href="#">
+<button type="button" class="btn btn-outline-secondary">
+<span id="address">0x87...a227</span>
+</button>
+</a>
+</li>
+
+
+</ul>
+</div>
+</div>
+</nav>
+
+<div class="rui-navbar rui-navbar-mobile">
+<div class="rui-navbar-head">
+
+<a class="rui-navbar-logo mr-auto" href="#">
+<img src="./assets/images/logo.jpg" data-src-night="./assets/images/logo-white.png" data-src-day="./assets/images/logo.jpg" alt="" width="120" height="45" />
+</a>
+<div class="dropdown dropdown-triangle coibreed_custom_nav">
+
+<li class="dropdown" style="padding-right: 10px">
+<a href="#">
+<button id="l-connect-wallet" type="button" class="btn btn-brand connectWalletBtn">
+Connect Wallet
+</button>
+</a>
+</li>
+<li class="dropdown">
+<a href="#" class="drop_this_at_mobile">
+<button type="button" class="btn btn-outline-secondary">
+0x87...a227
+</button>
+</a>
+</li>
+</div>
+<button class="navbar-toggler rui-navbar-toggle" type="button" data-toggle="collapse" data-target="#navbarMobile" aria-controls="navbarMobile" aria-expanded="false" aria-label="Toggle navigation">
+<span></span>
+</button>
+</div>
+<div class="collapse navbar-collapse rui-navbar-collapse" id="navbarMobile">
+<div class="rui-navbar-content">
+<ul class="nav">
+<li class="nav_list_custom">
+<a href="index.html" class="dropdown-item">
+<span data-feather="zap" class="text-brand rui-icon rui-icon-stroke-1_5"></span>
+<span class="text-brand">Staking</span>
+</a>
+
+</li>
+<li class="nav_list_custom">
+<a href="farming.html" class="dropdown-item">
+<span data-feather="settings" class="rui-icon rui-icon-stroke-1_5 text-secondary"></span>
+<span class="text-secondary">Farming</span>
+<span class="rui-dropdown-circle"></span>
+</a>
+
+</li>
+<li class="nav_list_custom">
+<a href="https://littlelink.finance" class="dropdown-item">
+<span data-feather="airplay" class="text-secondary rui-icon rui-icon-stroke-1_5"></span>
+<span class="text-secondary">Home</span>
+</a>
+
+</li>
+
+</ul>
+</div>
+</div>
+</div>
+<div class="rui-navbar-bg"></div>
+
+<div class="rui-page content-wrap">
+<div class="rui-page-title">
+<div class="container-fluid">
+<nav aria-label="breadcrumb">
+<ol class="breadcrumb">
+<li class="breadcrumb-item">
+
+</li>
+</ol>
+</nav>
+<h1 class="h1_small">MY STATISTICS</h1>
+
+</div>
+</div>
+<div class="rui-page-content">
+<div class="container-fluid">
+<div class="row vertical-gap">
+
+<div class="col-lg-3 col-md-6">
+<div class="rui-widget rui-widget-actions">
+<div class="rui-widget-head">
+<h4 class="rui-widget-title">
+<span data-feather="activity" class="rui-icon rui-icon-stroke-1_5"></span>
+BALANCE
+</h4>
+</div>
+<div class="rui-widget-content">
+<ul class="list-group list-group-flush rui-widget-list rui-widget-task-list">
+<li class="list-group-item">
+<span class="lead">
+<span id="bal">0</span>
+<span class="text-secondary">LITTLE</span>
+</span>
+</li>
+<li class="list-group-item">
+<button type="button" class="btn btn-brand btn_custom_width" data-toggle="modal" data-target="#stakeModal">
+<span class="icon"><span data-feather="zap" class="rui-icon rui-icon-stroke-1_5"></span>
+</span>
+<span class="text center_text">STAKE</span>
+</button>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="col-lg-3 col-md-6">
+<div class="rui-widget rui-widget-actions">
+<div class="rui-widget-head">
+<h4 class="rui-widget-title">
+<span data-feather="zap" class="rui-icon rui-icon-stroke-1_5"></span>
+STAKED BALANCE
+</h4>
+</div>
+<div class="rui-widget-content">
+<ul class="list-group list-group-flush rui-widget-list rui-widget-task-list">
+<li class="list-group-item">
+<span class="lead">
+<span id="stakedBalance">0</span>
+<span class="text-secondary">LITTLE</span>
+</span>
+<br />
+<span class="lead">
+<span id="timeLeft"><i>0</i></span>
+<span class="text-secondary"><i>seconds left</i></span>
+</span>
+
+<div class="dropdown dropdown-hover dropdown-triangle dropdown-keep-open" style="margin-left: 5px">
+<div class="clockIcon" id="clockIcon">
+<a class="dropdown-item mnr-8 coinbreed_tooltip_cus" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,12">
+<span stroke-width="1.5" data-feather="clock">
+</span>
+</a>
+</div>
+<ul class="dropdown-menu dropdown-menu-right" style="max-width: 300px; width: 200px; padding: 10px">
+<li>
+<small class="text-secondary custom_countdown_text">Countdown Completed</small
+                            >
+</li>
+</ul>
+</div>
+</li>
+<li class="list-group-item">
+<button type="button" class="btn btn-brand btn_custom_width" onclick="ClaimStakedTokens()">
+<span class="icon"><span data-feather="corner-up-right" class="rui-icon rui-icon-stroke-1_5"></span>
+</span>
+<span class="text center_text">WITHDRAW</span>
+</button>
+
+<div class="dropdown dropdown-hover dropdown-triangle dropdown-keep-open" style="margin-left: 5px">
+<a class="dropdown-item mnr-8 coinbreed_tooltip_cus" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,12">
+<span stroke-width="1.5" data-feather="info"></span>
+</a>
+ <ul class="dropdown-menu dropdown-menu-right" style="max-width: 300px; width: 200px; padding: 10px">
+<li>
+<small class="text-secondary">You can only withdraw your staked balance once
+the default lock-in period has ended.</small
+                            >
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="col-lg-3 col-md-6">
+<div class="rui-widget rui-widget-actions">
+<div class="rui-widget-head">
+<h4 class="rui-widget-title">
+<span data-feather="gift" class="rui-icon rui-icon-stroke-1_5"></span>
+MY REWARDS
+</h4>
+</div>
+<div class="rui-widget-content">
+<ul class="list-group list-group-flush rui-widget-list rui-widget-task-list">
+<li class="list-group-item">
+<span class="lead">
+<span id="PendingReward">0</span>
+<span class="text-secondary">LITTLE</span>
+</span>
+</li>
+<li class="list-group-item">
+<button type="button" class="btn btn-brand btn_custom_width" onclick="ClaimReward()">
+<span class="icon"><span data-feather="corner-up-right" class="rui-icon rui-icon-stroke-1_5"></span>
+</span>
+<span class="text center_text">CLAIM</span>
+</button>
+
+<div class="dropdown dropdown-hover dropdown-triangle dropdown-keep-open" style="margin-left: 5px">
+<a class="dropdown-item mnr-8 coinbreed_tooltip_cus" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,12">
+<span stroke-width="1.5" data-feather="info"></span>
+</a>
+<ul class="dropdown-menu dropdown-menu-right" style="max-width: 300px; width: 200px; padding: 10px">
+<li>
+<small class="text-secondary">You can claim your rewards immediately. Rewards
+will stop accumulating once your default lock-in
+period ends.</small
+                            >
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="col-lg-3 col-md-6">
+<div class="rui-widget rui-widget-actions" style="height: 202px">
+<div class="rui-widget-head">
+<h4 class="rui-widget-title">
+<span data-feather="check" class="rui-icon rui-icon-stroke-1_5"></span>
+CLAIMED
+</h4>
+</div>
+<div class="rui-widget-content">
+<ul class="list-group list-group-flush rui-widget-list rui-widget-task-list">
+<li class="list-group-item" style="border-bottom-width: 1px">
+<span class="lead">
+<span id="totalClaims"> 0 </span>
+<span class="text-secondary">LITTLE</span>
+</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<div class="rui-gap-3"></div>
+
+<h2>MY STAKING INFO</h2>
+<div class="row vertical-gap">
+
+<div class="col-lg-6 col-md-6">
+<div class="rui-widget rui-widget-actions">
+<div class="rui-widget-head">
+<h4 class="rui-widget-title">
+<span data-feather="clock" class="rui-icon rui-icon-stroke-1_5"></span>
+
+MY STAKING PERIOD
+</h4>
+</div>
+<div class="rui-widget-content">
+<ul class="list-group list-group-flush rui-widget-list rui-widget-task-list">
+<li class="list-group-item">
+<span class="lead">
+<span id="stakingPeriods">0</span>
+<span class="text-secondary">SECONDS</span>
+</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="col-lg-6 col-md-6">
+<div class="rui-widget rui-widget-actions">
+<div class="rui-widget-head">
+<h4 class="rui-widget-title">
+<span data-feather="gift" class="rui-icon rui-icon-stroke-1_5"></span>
+
+MY STAKING RATES
+</h4>
+</div>
+<div class="rui-widget-content">
+<ul class="list-group list-group-flush rui-widget-list rui-widget-task-list">
+<li class="list-group-item">
+<span class="lead">
+<span id="stkRate">0</span>
+<span class="text-secondary">%</span>
+</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<div class="rui-gap-3"></div>
+<h2>GLOBAL STATISTICS</h2>
+<div class="row vertical-gap">
+
+<div class="col-lg-4 col-md-6">
+<div class="rui-widget rui-widget-actions">
+<div class="rui-widget-head">
+<h4 class="rui-widget-title">
+<span data-feather="lock" class="rui-icon rui-icon-stroke-1_5"></span>
+TOTAL LOCKED FOR STAKING
+</h4>
+</div>
+<div class="rui-widget-content">
+<ul class="list-group list-group-flush rui-widget-list rui-widget-task-list">
+<li class="list-group-item">
+<span class="lead">
+<span id="TotalStakingBree">0</span>
+<span class="text-secondary">LITTLE</span>
+</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="col-lg-4 col-md-6">
+<div class="rui-widget rui-widget-actions">
+<div class="rui-widget-head">
+<h4 class="rui-widget-title">
+<span data-feather="gift" class="rui-icon rui-icon-stroke-1_5"></span>
+TOTAL CLAIMED REWARDS
+</h4>
+</div>
+<div class="rui-widget-content">
+<ul class="list-group list-group-flush rui-widget-list rui-widget-task-list">
+<li class="list-group-item">
+<span class="lead">
+<span id="totalRewards">0</span>
+<span class="text-secondary">LITTLE</span>
+</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="col-lg-4 col-md-6">
+<div class="rui-widget rui-widget-actions">
+<div class="rui-widget-head">
+<h4 class="rui-widget-title">
+<span data-feather="gift" class="rui-icon rui-icon-stroke-1_5"></span>
+
+STAKING RATES
+</h4>
+</div>
+<div class="rui-widget-content">
+<ul class="list-group list-group-flush rui-widget-list rui-widget-task-list">
+<li class="list-group-item">
+<span class="lead">
+<span id="lStakingRate">40</span>
+<span class="text-secondary">%</span>
+</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="col-lg-4 col-md-6">
+<div class="rui-widget rui-widget-actions">
+<div class="rui-widget-head">
+<h4 class="rui-widget-title">
+<span data-feather="clock" class="rui-icon rui-icon-stroke-1_5"></span>
+STAKING PERIOD
+</h4>
+</div>
+<div class="rui-widget-content">
+<ul class="list-group list-group-flush rui-widget-list rui-widget-task-list">
+<li class="list-group-item">
+<span class="lead">
+<span id="stakingP">2592000</span>
+<span class="text-secondary">SECONDS</span>
+</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="col-lg-4 col-md-6">
+<div class="rui-widget rui-widget-actions">
+<div class="rui-widget-head">
+<h4 class="rui-widget-title">
+<span data-feather="gift" class="rui-icon rui-icon-stroke-1_5"></span>
+REWARD CLAIMING FEES
+</h4>
+</div>
+<div class="rui-widget-content">
+<ul class="list-group list-group-flush rui-widget-list rui-widget-task-list">
+<li class="list-group-item">
+<span class="lead">
+<span id="stkClaimFeesDefault">0.001</span>
+<span class="text-secondary">ETH</span>
+</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="col-lg-4 col-md-6">
+<div class="rui-widget rui-widget-actions">
+<div class="rui-widget-head">
+<h4 class="rui-widget-title">
+<span data-feather="minimize" class="rui-icon rui-icon-stroke-1_5"></span>
+MINIMUM STAKING AMOUNTS
+</h4>
+</div>
+<div class="rui-widget-content">
+<ul class="list-group list-group-flush rui-widget-list rui-widget-task-list">
+<li class="list-group-item">
+<span class="lead">
+<span id="minStakAmt">300</span>
+<span class="text-secondary">LITTLE</span>
+</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+</div>
+</div>
+</div>
+<footer class="rui-footer">
+<div class="container-fluid">
+<p class="mb-0">2020 &copy; LittleLink.finance.</p>
+</div>
+</footer>
+</div>
+
+<div class="modal fade" id="stakeModal" tabindex="-1" role="dialog" aria-labelledby="stakeModalLAbel" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="exampleModalLabel"></h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span data-feather="x" class="rui-icon rui-icon-stroke-1_5"></span>
+</button>
+</div>
+<div class="modal-body">
+<form class="#">
+<div class="row vertical-gap sm-gap">
+<div class="col-12">
+<label for="amount">Amount</label>
+<div class="input-group">
+<input type="text" class="form-control" id="amount" name="amount" />
+</div>
+</div>
+</div>
+</form>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-outline-brand" data-dismiss="modal" onclick="approve()">
+STEP 1. Approve
+</button>
+<div class="dropdown dropdown-hover dropdown-triangle dropdown-keep-open" style="margin-right: 0px">
+<a class="dropdown-item mnr-8 coinbreed_tooltip_cus" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,12">
+<span stroke-width="1.5" data-feather="info"></span>
+</a>
+<ul class="dropdown-menu dropdown-menu-right" style="max-width: 300px; width: 200px; padding: 10px">
+<li>
+<small class="text-secondary">You are required to approve the LITTLE_STAKE_FARM contract to spend your tokens. If you do not wish to approve ever again, put large amounts such as 10 million.</small
+                  >
+</li>
+</ul>
+</div>
+<button type="button" class="btn btn-outline-brand" data-dismiss="modal" onclick="stake()">
+Stake (300 MIN)
+</button>
+<div class="dropdown dropdown-hover dropdown-triangle dropdown-keep-open" style="margin-right: 0px">
+<a class="dropdown-item mnr-8 coinbreed_tooltip_cus" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,12">
+<span stroke-width="1.5" data-feather="info"></span>
+</a>
+<ul class="dropdown-menu dropdown-menu-right" style="max-width: 300px; width: 200px; padding: 10px">
+<li>
+<small class="text-secondary">Use this only if you do not have an actively staked
+balance. If this is your first time staking, you will need
+to 'approve' your balances first.</small
+                  >
+</li>
+</ul>
+</div>
+<button type="button" onclick="addToStake()" class="btn btn-brand">
+Add More
+</button>
+<div class="dropdown dropdown-hover dropdown-triangle dropdown-keep-open">
+<a class="dropdown-item mnr-8 coinbreed_tooltip_cus" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,12">
+<span stroke-width="1.5" data-feather="info"></span>
+</a>
+<ul class="dropdown-menu dropdown-menu-right" style="max-width: 300px; width: 200px; padding: 10px">
+<li>
+<small class="text-secondary">Use this only if you have an actively staked balance and
+you wish to add more. WARNING: Your lock-in period resets to
+Day 1.</small
+                  >
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script src="./assets/vendor/jquery/dist/jquery.min.js"></script>
+<script src="./assets/vendor/popper.js/dist/umd/popper.min.js"></script>
+<script src="./assets/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="./assets/vendor/feather-icons/dist/feather.min.js"></script>
+<script src="./assets/js/rootui.js"></script>
+<script src="./assets/js/rootui-init.js"></script>
+<script src="./assets/js/yscountdown.min.js"></script>
+<script src="./assets/js/main.js"></script>
+</body>
+</html>

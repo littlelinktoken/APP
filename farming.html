@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>FARMING | LITTLE LINK</title>
+<link rel="icon" type="image/png" href="./assets/images/favicon.png" />
+<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" />
+<link rel="stylesheet" href="./assets/css/bootstrap-custom.css" />
+<link rel="stylesheet" href="./assets/css/rootui.css" />
+<link rel="stylesheet" href="./assets/css/rootui-night.css" media="(night)" class="rui-nightmode-link" />
+<link rel="stylesheet" href="./assets/css/custom.css" />
+<link rel="stylesheet" href="./assets/css/builddao.css" />
+<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+
+<script src="./farming.js"></script>
+</head>
+<body data-spy="scroll" data-target=".rui-page-sidebar" data-offset="140" class="rui-no-transition rui-navbar-autohide rui-section-lines">
+<div class="rui-page-preloader" role="status">
+<div class="rui-page-preloader-inner">
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+</div>
+</div>
+<div class="rui-yaybar-bg"></div>
+<nav class="rui-navbar rui-navbar-top rui-navbar-sticky">
+<div class="rui-navbar-brand">
+<a href="#" class="rui-navbar-logo">
+<img src="./assets/images/logooo.png" data-src-night="#" data-src-day="./assets/images/logooo.png" alt="" width="120" />
+</a>
+
+</div>
+<div class="container-fluid">
+<div class="rui-navbar-content">
+<ul class="nav">
+<li class="">
+<a href="index.html" class="dropdown-item">
+<span data-feather="zap" class="text-secondary rui-icon rui-icon-stroke-1_5"></span>
+<span class="text-secondary">Staking</span>
+</a>
+
+</li>
+<li class="">
+<a href="farming.html" class="dropdown-item">
+<span data-feather="settings" class="text-brand rui-icon rui-icon-stroke-1_5"></span>
+<span class="text-brand">Farming</span>
+<span class="rui-dropdown-circle"></span>
+</a>
+
+</li>
+<li class="">
+<a href="https://littlelink.finance" class="dropdown-item">
+<span data-feather="airplay" class="text-secondary rui-icon rui-icon-stroke-1_5"></span>
+<span class="text-secondary">Home</span>
+</a>
+
+</li>
+</ul>
+<ul class="nav rui-navbar-right">
+
+<li class="dropdown" style="padding: 0">
+<a href="#">
+<button type="button" onclick="connectWallet()" class="btn btn-brand connectWalletBtn">
+Connect Wallet
+</button>
+</a>
+</li>
+<li class="dropdown">
+<a href="#">
+<button type="button" class="btn btn-outline-secondary">
+<span id="address">0x87...a227</span>
+</button>
+</a>
+</li>
+
+
+</ul>
+</div>
+</div>
+</nav>
+
+<div class="rui-navbar rui-navbar-mobile">
+<div class="rui-navbar-head">
+
+<a class="rui-navbar-logo mr-auto" href="#">
+<img src="./assets/images/logooo.png" data-src-night="#" data-src-day="./assets/images/logooo.png" alt="" width="120" height="45" />
+</a>
+<div class="dropdown dropdown-triangle coibreed_custom_nav">
+
+<li class="dropdown" style="padding-right: 10px">
+<a href="#">
+<button type="button" id="l-connect-wallet" class="btn btn-brand connectWalletBtn">
+Connect Wallet
+</button>
+</a>
+</li>
+<li class="dropdown">
+<a href="#" class="drop_this_at_mobile">
+<button type="button" class="btn btn-outline-secondary">
+0x90...aFF7
+</button>
+</a>
+</li>
+</div>
+<button class="navbar-toggler rui-navbar-toggle" type="button" data-toggle="collapse" data-target="#navbarMobile" aria-controls="navbarMobile" aria-expanded="false" aria-label="Toggle navigation">
+<span></span>
+</button>
+</div>
+<div class="collapse navbar-collapse rui-navbar-collapse" id="navbarMobile">
+<div class="rui-navbar-content">
+<ul class="nav">
+<li class="nav_list_custom">
+<a href="index.html" class="dropdown-item">
+<span data-feather="zap" class="text-secondary rui-icon rui-icon-stroke-1_5"></span>
+<span class="text-secondary">Staking</span>
+</a>
+
+</li>
+<li class="nav_list_custom">
+<a href="farming.html" class="dropdown-item">
+<span data-feather="settings" class="text-brand rui-icon rui-icon-stroke-1_5"></span>
+<span class="text-brand">Farming</span>
+<span class="rui-dropdown-circle"></span>
+</a>
+
+</li>
+<li class="nav_list_custom">
+<a href="https://littlelink.finance" class="dropdown-item">
+<span data-feather="airplay" class="text-secondary rui-icon rui-icon-stroke-1_5"></span>
+<span class="text-secondary">Home</span>
+</a>
+
+</li>
+
+</ul>
+</div>
+</div>
+</div>
+<div class="rui-navbar-bg"></div>
+
+<div class="rui-page content-wrap">
+<div class="rui-page-title">
+<div class="container-fluid">
+<div class="custom_inline_w_title">
+<div>
+<nav aria-label="breadcrumb">
+<ol class="breadcrumb">
+<li class="breadcrumb-item">
+
+</li>
+</ol>
+</nav>
+<h1 class="h1_small">MY STATISTICS</h1>
+</div>
+<div class="btn_with_title">
+<a href="yield.html" target="_blank" class="btn btn-brand">
+<span class="icon"><span data-feather="help-circle" class="rui-icon rui-icon-stroke-1_5"></span>
+</span>
+<span class="text">Farming Info</span>
+</a>
+</div>
+</div>
+
+</div>
+</div>
+<div class="rui-page-content">
+<div class="container-fluid">
+<div class="row vertical-gap">
+
+<div class="col-lg-3 col-md-6">
+<div class="rui-widget rui-widget-actions">
+<div class="rui-widget-head">
+<h4 class="rui-widget-title">
+<span data-feather="activity" class="rui-icon rui-icon-stroke-1_5"></span>
+BALANCE
+</h4>
+</div>
+<div class="rui-widget-content">
+<ul class="list-group list-group-flush rui-widget-list rui-widget-task-list">
+<li class="list-group-item">
+<div>
+
+<select class="custom-select" id="custom_select_with_icon">
+<option value="LINK">
+LINK
+</option>
+<option value="SLINK">
+SLINK
+</option>
+<option value="SLINK LP">
+SLINK LP
+</option>
+</select>
+</div>
+<div class="mt10">
+<span class="lead">
+<span id="tokenBalance">0</span>
+</span>
+</div>
+</li>
+<li class="list-group-item">
+<button type="button" class="btn btn-brand btn_custom_width" data-toggle="modal" data-target="#startFarmingModal">
+<span class="icon"><span data-feather="check" class="rui-icon rui-icon-stroke-1_5"></span>
+</span>
+<span class="text">START FARMING</span>
+</button>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="col-lg-3 col-md-6">
+<div class="rui-widget rui-widget-actions">
+<div class="rui-widget-head">
+<h4 class="rui-widget-title">
+<span data-feather="command" class="rui-icon rui-icon-stroke-1_5"></span>
+FARMING BALANCE
+</h4>
+</div>
+<div class="rui-widget-content">
+<ul class="list-group list-group-flush rui-widget-list rui-widget-task-list">
+<li class="list-group-item">
+<div>
+<select id="custom_select_with_icon1" class="custom-select">
+<option value="LINK">
+LINK
+</option>
+<option value="SLINK">
+SLINK
+</option>
+<option value="SLINK LP">
+SLINK LP
+</option>
+</select>
+</div>
+<div class="mt10">
+<span class="lead">
+<span id="farmBalance">0</span>
+</span>
+</div>
+</li>
+<li class="list-group-item">
+<button type="button" class="btn btn-brand btn_custom_width" data-toggle="modal" data-target="#stopFarmingModal">
+<span class="icon"><span data-feather="corner-up-right" class="rui-icon rui-icon-stroke-1_5"></span>
+</span>
+<span class="text">STOP FARMING</span>
+</button>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="col-lg-3 col-md-6">
+<div class="rui-widget rui-widget-actions">
+<div class="rui-widget-head">
+<h4 class="rui-widget-title">
+<span data-feather="gift" class="rui-icon rui-icon-stroke-1_5"></span>
+FARMED
+</h4>
+</div>
+<div class="rui-widget-content">
+<ul class="list-group list-group-flush rui-widget-list rui-widget-task-list">
+<li class="list-group-item">
+<div>
+<select id="custom_select_with_icon_farmed" class="custom-select">
+<option value="LINK">
+LINK
+</option>
+<option value="SLINK">
+SLINK
+</option>
+<option value="SLINK LP">
+SLINK LP
+</option>
+</select>
+</div>
+<div class="mt10">
+<span class="lead">
+<span id="totalFarmed">0</span>
+<span class="text-secondary">LITTLE</span>
+</span>
+</div>
+</li>
+<li class="list-group-item">
+<button type="button" onclick="claimFarmed()" class="btn btn-brand btn_custom_width">
+<span class="icon"><span data-feather="corner-up-right" class="rui-icon rui-icon-stroke-1_5"></span>
+</span>
+<span class="text center_text">CLAIM</span>
+</button>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="col-lg-3 col-md-6">
+<div class="rui-widget rui-widget-actions" style="min-height: 248px">
+<div class="rui-widget-head">
+<h4 class="rui-widget-title">
+<span data-feather="check" class="rui-icon rui-icon-stroke-1_5"></span>
+CLAIMED
+</h4>
+</div>
+<div class="rui-widget-content">
+<ul class="list-group list-group-flush rui-widget-list rui-widget-task-list">
+<li class="list-group-item" style="border-bottom-width: 1px">
+<div>
+<select id="custom_select_with_icon_claimed" class="custom-select">
+<option value="LINK">
+LINK
+</option>
+<option value="SLINK">
+SLINK
+</option>
+<option value="SLINK LP">
+SLINK LP
+</option>
+</select>
+</div>
+<div class="mt10">
+<span class="lead">
+<span id="totalClaimed">0</span>
+<span class="text-secondary">LITTLE</span>
+</span>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="rui-gap-3"></div>
+<h2>GLOBAL STATISTICS</h2>
+<div class="row vertical-gap">
+
+<div class="col-lg-6 col-md-6">
+<div class="rui-widget rui-widget-actions" style="min-height: 285px">
+<div class="rui-widget-head">
+<h4 class="rui-widget-title">
+<span data-feather="share-2" class="rui-icon rui-icon-stroke-1_5"></span>
+LATEST FARMING RATES
+</h4>
+</div>
+<div class="rui-widget-content">
+<ul class="list-group list-group-flush rui-widget-list rui-widget-task-list">
+
+<li class="list-group-item">
+<div class="d-flex align-items-center">
+<p class="lead"><b>Global APR in USD: 20%</b></p>
+<p style="margin-left: auto;">
+<a href="yield.html" target="_blank" class="btn btn-brand">
+<span class="icon">
+<span data-feather="help-circle" class="rui-icon rui-icon-stroke-1_5"></span>
+</span>
+<span class="text">Farming Rates</span>
+</a>
+</p>
+</div>
+<div class="custom_inline">
+<div class="farming_rate_custom_w">
+<select id="custom_select_with_icon2" class="custom-select">
+<option value="LINK">
+LINK
+</option>
+<option value="SLINK">
+SLINK
+</option>
+<option value="SLINK LP">
+SLINK LP
+</option>
+</select>
+</div>
+<div class="custom_inline_right">
+<span class="lead">
+<span class="apy_percent" id="apy_percent">0</span>
+% APR
+</span>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="col-lg-6 col-md-6">
+<div class="rui-widget rui-widget-actions mh133">
+<div class="rui-widget-head">
+<h4 class="rui-widget-title">
+<span data-feather="trending-up" class="rui-icon rui-icon-stroke-1_5"></span>
+TOTAL COLLECTED YIELD
+</h4>
+</div>
+<div class="rui-widget-content">
+<ul class="list-group list-group-flush rui-widget-list rui-widget-task-list">
+<li class="list-group-item">
+<span class="lead">
+<span id="totalcollyeild">0</span>
+<span class="text-secondary">LITTLE</span>
+</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="rui-widget rui-widget-actions mh133 mt-20">
+<div class="rui-widget-head">
+<h4 class="rui-widget-title">
+<span data-feather="gift" class="rui-icon rui-icon-stroke-1_5"></span>
+YIELD COLLECTION FEES
+</h4>
+</div>
+<div class="rui-widget-content">
+<ul class="list-group list-group-flush rui-widget-list rui-widget-task-list">
+<li class="list-group-item">
+<span class="lead">
+<span id="yeildColFee">0</span>
+<span class="text-secondary">LITTLE</span>
+</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="col-lg-4 col-md-6"></div>
+</div>
+</div>
+</div>
+<footer class="rui-footer">
+<div class="container-fluid">
+<p class="mb-0">2020 &copy; LITTLEDAO.finance.</p>
+</div>
+</footer>
+</div>
+
+<div class="modal fade" id="startFarmingModal" tabindex="-1" role="dialog" aria-labelledby="startFarmingModalLAbel" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="exampleModalLabel"></h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span data-feather="x" class="rui-icon rui-icon-stroke-1_5"></span>
+</button>
+</div>
+<div class="modal-body">
+<form class="#">
+<div class="row vertical-gap sm-gap">
+<div class="custom_inline col-12">
+<div style="width: calc(100% - 120px)">
+<label for="coin">Select Asset</label>
+<select id="custom_select_with_icon_modal" class="custom-select">
+<option value="YFI">
+YFI
+</option>
+<option value="COMP">
+COMP
+</option>
+<option value="SNX">
+SNX
+</option>
+<option value="MKR">
+MKR
+</option>
+<option value="UNI">
+UNI
+</option>
+<option value="AKRO">
+AKRO
+</option>
+<option value="PNK">
+PNK
+</option>
+</select>
+</div>
+<div class="custom_inline_right" style="align-self: flex-end">
+<button type="button" class="btn btn-outline-brand" data-dismiss="modal" onclick="tokenApproveToFarm();">
+Approve
+</button>
+<div class="dropdown dropdown-hover dropdown-triangle dropdown-keep-open" style="margin-right: 0px; margin-left: 5px">
+<a class="dropdown-item mnr-8 coinLITTLEd_tooltip_cus" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,12">
+<span stroke-width="1.5" data-feather="info"></span>
+</a>
+<ul class="dropdown-menu dropdown-menu-right" style="max-width: 300px; width: 200px; padding: 10px">
+<li>
+<small class="text-secondary">You will need to approve each of your governance
+asset to interact with the LITTLE farming contract.
+You only need to do this once for all governance
+assets.</small
+                          >
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-12">
+<label for="amount">Amount</label>
+<div class="input-group">
+<input type="text" class="form-control" id="amoun" />
+</div>
+</div>
+</div>
+</form>
+</div>
+<div class="modal-footer">
+
+<button type="button" class="btn btn-outline-brand" data-dismiss="modal" onclick="StartFarming()">
+Start
+</button>
+<div class="dropdown dropdown-hover dropdown-triangle dropdown-keep-open" style="margin-right: 0px">
+<a class="dropdown-item mnr-8 coinbreed_tooltip_cus" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,12">
+<span stroke-width="1.5" data-feather="info"></span>
+</a>
+<ul class="dropdown-menu dropdown-menu-right" style="max-width: 300px; width: 200px; padding: 10px">
+<li>
+<small class="text-secondary">This should only be used if you do not already have an
+actively farming balance for the selected governance
+asset.</small
+                  >
+</li>
+</ul>
+</div>
+<button type="button" onclick="addtoFarm()" class="btn btn-brand">
+Add More
+</button>
+<div class="dropdown dropdown-hover dropdown-triangle dropdown-keep-open">
+<a class="dropdown-item mnr-8 coinbreed_tooltip_cus" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,12">
+<span stroke-width="1.5" data-feather="info"></span>
+</a>
+<ul class="dropdown-menu dropdown-menu-right" style="max-width: 300px; width: 200px; padding: 10px">
+<li>
+<small class="text-secondary">This should only be used if you already have an actively
+farming balance for the selected governance asset and you
+wish to add more.</small
+                  >
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="modal fade" id="stopFarmingModal" tabindex="-1" role="dialog" aria-labelledby="stopFarmingModalLAbel" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="exampleModalLabel"></h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span data-feather="x" class="rui-icon rui-icon-stroke-1_5"></span>
+</button>
+</div>
+<div class="modal-body">
+<form class="#">
+<div class="row vertical-gap sm-gap">
+<div class="col-12">
+<label for="coin">Select Asset</label>
+<select id="custom_select_with_icon_modal2" class="custom-select">
+<option value="YFI">
+YFI
+</option>
+<option value="COMP">
+COMP
+</option>
+<option value="SNX">
+SNX
+</option>
+<option value="MKR">
+MKR
+</option>
+<option value="UNI">
+UNI
+</option>
+<option value="AKRO">
+AKRO
+</option>
+<option value="PNK">
+PNK
+</option>
+</select>
+</div>
+<div class="col-12">
+<label for="amount">Amount</label>
+<div class="input-group">
+<input type="text" class="form-control" id="amount" />
+</div>
+</div>
+</div>
+</form>
+</div>
+<div class="modal-footer">
+<button type="button" onclick="stopFarming()" class="btn btn-brand" data-dismiss="modal">
+Stop Farming
+</button>
+</div>
+</div>
+</div>
+</div>
+<script src="./assets/vendor/jquery/dist/jquery.min.js"></script>
+<script src="./assets/vendor/popper.js/dist/umd/popper.min.js"></script>
+<script src="./assets/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="./assets/vendor/feather-icons/dist/feather.min.js"></script>
+<script src="./assets/js/rootui.js"></script>
+<script src="./assets/js/rootui-init.js"></script>
+<script src="./assets/js/jquery.ddslick.min.js"></script>
+<script type="text/javascript">
+      $(document).ready(function () {
+        var allSelect   = document.querySelectorAll(".custom-select"),
+            cusSelect   = document.querySelector("#custom_select_with_icon"),
+            cusSelect1  = document.querySelector("#custom_select_with_icon1"),
+            cusSelect2  = document.querySelector("#custom_select_with_icon2"),
+            cusSelect3  = document.querySelector("#custom_select_with_icon_farmed"),
+            cusSelect4  = document.querySelector("#custom_select_with_icon_claimed"),
+            cusSelect5  = document.querySelector("#custom_select_with_icon_modal"),
+            cusSelect6  = document.querySelector("#custom_select_with_icon_modal2");
+
+        function loadAllSelect(v) {
+          if (v !== null) {
+            allSelect.forEach(s => {
+              s.value = v;
+            })
+
+            callBalance(v);
+            callFarmBalance(v);
+            callApy(v);
+            callTotalFarmed(v);
+            callTotalClaimed(v);
+            callToApprove(v);
+            calltoStopFarm(v);
+          }
+
+          return;
+
+        }
+
+        callBalance(cusSelect.value);
+        callFarmBalance(cusSelect1.value);
+        callApy(cusSelect2.value);
+        callTotalFarmed(cusSelect3.value);
+        callTotalClaimed(cusSelect4.value);
+        callToApprove(cusSelect5.value);
+        calltoStopFarm(cusSelect6.value);
+
+        allSelect.forEach(slt => {
+          slt.addEventListener("change", () => {
+            setLocalStorage("coinbreederDefaultSelect", slt.value);
+            loadAllSelect(getLocalStorage("coinbreederDefaultSelect"));
+          })
+        });
+
+        // cusSelect.addEventListener("change", function() {
+        //   var v = this.value;
+        //   callBalance(v);
+        // })
+
+        // cusSelect1.addEventListener("change", function() {
+        //   var v = this.value;
+        //   callFarmBalance(v);
+        // })
+
+        // cusSelect2.addEventListener("change", function() {
+        //   var v = this.value;
+        //   callApy(v);
+        // })
+
+        // cusSelect3.addEventListener("change", function() {
+        //   var v = this.value;
+        //   callTotalFarmed(v);
+        // })
+
+        // cusSelect4.addEventListener("change", function() {
+        //   var v = this.value;
+        //   callTotalClaimed(v);
+        // })
+
+        // cusSelect5.addEventListener("change", function() {
+        //   var v = this.value;
+        //   callToApprove(v);
+        // })
+
+        // cusSelect6.addEventListener("change", function() {
+        //   var v = this.value;
+        //   calltoStopFarm(v);
+        // })
+
+
+
+        if (loginUser) {
+          document.querySelectorAll(".connectWalletBtn").forEach(txt => {
+            txt.textContent = "Connected";
+          })
+        }
+
+        connectWallet();
+        loadAllSelect(getLocalStorage("coinbreederDefaultSelect"));
+
+        // if (sessionStorage.getItem("walletConnected") == "connected") {
+        //   document.querySelector(".connectWalletBtn").textContent("Connected");
+        // }
+
+      });
+
+      // $('.custom_select_with_icon').ddslick();
+      // $('.custom_select_with_icon1').ddslick();
+      // $('.custom_select_with_icon_claimed').ddslick();
+      // $('.custom_select_with_icon_farmed').ddslick();
+      // $('.custom_select_with_icon_modal').ddslick();
+      // $('.custom_select_with_icon_modal2').ddslick();
+
+      var apyPercent = document.querySelector('.apy_percent');
+      //   var balSel = document.querySelector('#tokenBalance');
+      //   var apySelect = document.querySelector('#custom_select_with_icon2');
+
+      //   custom_select_with_icon_farmed
+
+      //Dropdown plugin data
+      //var ddData = [];
+
+      // var balData = [];
+      // var farmBal = [];
+      // var tFarmed = [];
+      // var tClaimed = [];
+
+      // $('#custom_select_with_icon2').ddslick({
+      //   data: ddData,
+      //   onSelected: function (data) {
+      //     var v = data.selectedData.value;
+      //     callApy(v);
+      //   },
+      // });
+
+      // $('#custom_select_with_icon').ddslick({
+      //   data: ddData,
+      //   onSelected: function (data) {
+      //     var v = data.selectedData.value;
+      //     callBalance(v);
+      //   },
+      // });
+
+      // $('#custom_select_with_icon1').ddslick({
+      //   data: ddData,
+      //   onSelected: function (data) {
+      //     var v = data.selectedData.value;
+      //     callFarmBalance(v);
+      //   },
+      // });
+
+      // $('#custom_select_with_icon_farmed').ddslick({
+      //   data: ddData,
+      //   onSelected: function (data) {
+      //     var v = data.selectedData.value;
+      //     callTotalFarmed(v);
+      //   },
+      // });
+
+      // $('#custom_select_with_icon_claimed').ddslick({
+      //   data: ddData,
+      //   onSelected: function (data) {
+      //     var v = data.selectedData.value;
+      //     callTotalClaimed(v);
+      //   },
+      // });
+
+      // $('#custom_select_with_icon_modal').ddslick({
+      //   data: ddData,
+      //   onSelected: function (data) {
+      //     var v = data.selectedData.value;
+      //     callToApprove(v);
+      //   },
+      // });
+
+      // $('#custom_select_with_icon_modal2').ddslick({
+      //   data: ddData,
+      //   onSelected: function (data) {
+      //     var v = data.selectedData.value;
+      //     calltoStopFarm(v);
+      //   },
+      // });
+    </script>
+</body>
+</html>
